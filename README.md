@@ -22,7 +22,6 @@ Este é um projeto Angular para gerenciamento de produtos, permitindo adicionar,
   - `app/`
     - `components/`
       - `listar-produtos/`: Componente principal que gerencia a lista de produtos.
-      - `code-display/`: Componente que exibe o código do componente de gerenciamento de produtos.
     - `models/`: Modelos de dados, incluindo `produto.model.ts`.
     - `services/`: Serviço para gerenciar operações relacionadas a produtos, incluindo `produto.service.ts`.
     - `app.component.ts`: Componente raiz da aplicação.
