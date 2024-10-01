@@ -1,0 +1,52 @@
+<h2>Lista de Produtos</h2>
+<button (click)="mostrarFormulario()">Adicionar Produto</button>
+<div *ngIf="formularioVisivel">
+  <h3>{{ produtoEditando ? 'Editar Produto' : 'Adicionar Produto' }}</h3>
+  <form (ngSubmit)="salvarProduto()">
+    <label for="nome">Nome:</label>
+    <input id="nome" [(ngModel)]="produto.nome_Produto" name="nome" required>
+
+    <label for="descricao">Descrição:</label>
+    <input id="descricao" [(ngModel)]="produto.descricao" name="descricao" required>
+
+    <label for="preco">Preço:</label>
+    <input type="number" id="preco" [(ngModel)]="produto.preco" name="preco" required>
+
+    <label for="quantidade">Quantidade em Estoque:</label>
+    <input type="number" id="quantidade" [(ngModel)]="produto.quantidade_Estoque" name="quantidade" required>
+
+    <label for="categoria">Categoria:</label>
+    <input id="categoria" [(ngModel)]="produto.categoria" name="categoria" required>
+
+    <button type="submit">{{ produtoEditando ? 'Salvar' : 'Adicionar' }}</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+  </form>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Preço</th>
+      <th>Estoque</th>
+      <th>Categoria</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produto of produtos">
+      <td>{{ produto.id }}</td>
+      <td>{{ produto.nome_Produto }}</td>
+      <td>{{ produto.descricao }}</td>
+      <td>{{ produto.preco | currency }}</td>
+      <td>{{ produto.quantidade_Estoque }}</td>
+      <td>{{ produto.categoria }}</td>
+      <td>
+        <button (click)="editarProduto(produto)">Editar</button>
+        <button (click)="removerProduto(produto.id)">Remover</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
